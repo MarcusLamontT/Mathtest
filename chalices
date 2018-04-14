@@ -7,18 +7,24 @@ def main():
     right = 0.0
     number1 = 0
     answer = 0.0
+    endProgram = "no"
 
 
 
-    while counter <5:
-        number1 = getNumbers()
-        answer = getAnswer(answer)
-        right = checkAnswer(number1, answer, right)
-        counter = counter + 1
+    while endProgram == "no":
+        while counter <5:
+            number1 = getNumbers()
+            answer = getAnswer(answer)
+            right = checkAnswer(number1, answer, right)
+            counter = counter + 1
+
+    if right == 5:
+        printGrats()
+
 
 
 def getNumbers():
-    number1 = random.randint(1, 5)
+    number1 = random.randint(1, 500)
 
     return number1 
 
@@ -37,18 +43,13 @@ def checkAnswer(number1, answer, right):
         right = right + 1
     elif answer == number1:
         print("YOU DRANK THE POISON!")
-        input("Would you like to try again?")
-        if "yes":
-            checkAnswer(number1, answer, right)
-        else:
-            break
+        endProgram = input("Would you like to try again?")
+        
     return right
 
 def printGrats():
     print("")
     print("CONGRATULATIONS YOU MADE IT TO THE END")
 
-def endProgram():
-    print("")
 
 main()
