@@ -1,11 +1,12 @@
 import random
 
 def main():
-    
+
+    endProgram = "no"
     counter = 0
     number1 = 0
     answer = 0.0
-    endProgram = "no"
+    replay = "no"
 
     while endProgram == "no":
         while counter <1:
@@ -14,7 +15,11 @@ def main():
             right = checkAnswer(number1, answer,)
             counter = counter + 1
 
-            endProgram = input("Do you want to end program? (Enter yes or no): ")
+            replay = input("Do you want to play again? (yes or no)")
+            if replay == "yes":
+                counter = 0
+            else:
+                endProgram = "yes"
 
 def getNumbers():
     number1 = random.randint(1, 2)
@@ -22,8 +27,7 @@ def getNumbers():
     return number1 
 
 def getAnswer(answer):
-    print("\n")
-    print("One of these two cups are poisoned, pick the correct one you win!")
+    print("\nOne of these two cups are poisoned, pick the correct one and you win!(type 1 or 2)\n")
     print("")
     answer = int(input("Which cup do you choose? "))
     print("")
@@ -31,9 +35,9 @@ def getAnswer(answer):
 
 def checkAnswer(number1, answer):
     if answer != number1:
-        print("YOU WIN!")
+        print("\nYOU WIN!\n")
     elif answer == number1:
-        print("YOU DRANK THE POISON!")
+        print("\nYOU DRANK THE POISON!\n")
         
 main()
 
