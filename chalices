@@ -3,12 +3,9 @@ import random
 def main():
     
     counter = 0
-    averageRight = 0.0
-    right = 0.0
     number1 = 0
     answer = 0.0
     endProgram = "no"
-    retry = "no"
 
     while endProgram == "no":
         while counter <1:
@@ -39,3 +36,4 @@ def checkAnswer(number1, answer):
         print("YOU DRANK THE POISON!")
         
 main()
+
