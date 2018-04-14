@@ -8,48 +8,34 @@ def main():
     number1 = 0
     answer = 0.0
     endProgram = "no"
-
-
+    retry = "no"
 
     while endProgram == "no":
-        while counter <5:
+        while counter <1:
             number1 = getNumbers()
             answer = getAnswer(answer)
-            right = checkAnswer(number1, answer, right)
+            right = checkAnswer(number1, answer,)
             counter = counter + 1
 
-    if right == 5:
-        printGrats()
-
-
+            endProgram = input("Do you want to end program? (Enter yes or no): ")
 
 def getNumbers():
-    number1 = random.randint(1, 500)
+    number1 = random.randint(1, 2)
 
     return number1 
 
 def getAnswer(answer):
     print("\n")
-    print("One of these 5 cups are poisoned pick one to drink out of to advance, avoid the poison 5 times and you win!")
+    print("One of these two cups are poisoned, pick the correct one you win!")
     print("")
     answer = int(input("Which cup do you choose? "))
     print("")
     return answer
 
-def checkAnswer(number1, answer, right):
+def checkAnswer(number1, answer):
     if answer != number1:
-        print("YOU ADVANCED!")
-        print("The cup with the poison was cup number", number1)
-        right = right + 1
+        print("YOU WIN!")
     elif answer == number1:
         print("YOU DRANK THE POISON!")
-        endProgram = input("Would you like to try again?")
         
-    return right
-
-def printGrats():
-    print("")
-    print("CONGRATULATIONS YOU MADE IT TO THE END")
-
-
 main()
