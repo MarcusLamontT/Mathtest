@@ -1,0 +1,52 @@
+import random
+
+def main():
+    
+    counter = 0
+    averageRight = 0.0
+    right = 0.0
+    number1 = 0
+    answer = 0.0
+
+
+
+    while counter <5:
+        number1 = getNumbers()
+        answer = getAnswer(answer)
+        right = checkAnswer(number1, answer, right)
+        counter = counter + 1
+
+    printGrats()
+
+    
+
+
+def getNumbers():
+    number1 = random.randint(1, 5)
+
+    return number1 
+
+def getAnswer(answer):
+    print("")
+    print("One of these 5 cups are poisoned pick one to drink out of to advance, avoid the poison 5 times and you win!")
+    print("")
+    answer = int(input("Which cup do you choose? "))
+    print("")
+    return answer
+
+def checkAnswer(number1, answer, right):
+    if answer != number1:
+        print("YOU ADVANCED!")
+        print("The cup with the poison was cup number", number1)
+        right = right + 1
+    elif answer == number1:
+        counter = 10
+        print("YOU DRANK THE POISON!")
+        print("")
+    return right
+
+def printGrats():
+    print("")
+    print("CONGRATULATIONS YOU MADE IT TO THE END")
+
+main()
