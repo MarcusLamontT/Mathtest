@@ -16,10 +16,6 @@ def main():
         right = checkAnswer(number1, answer, right)
         counter = counter + 1
 
-    printGrats()
-
-    
-
 
 def getNumbers():
     number1 = random.randint(1, 5)
@@ -27,7 +23,7 @@ def getNumbers():
     return number1 
 
 def getAnswer(answer):
-    print("")
+    print("\n")
     print("One of these 5 cups are poisoned pick one to drink out of to advance, avoid the poison 5 times and you win!")
     print("")
     answer = int(input("Which cup do you choose? "))
@@ -40,13 +36,19 @@ def checkAnswer(number1, answer, right):
         print("The cup with the poison was cup number", number1)
         right = right + 1
     elif answer == number1:
-        counter = 10
         print("YOU DRANK THE POISON!")
-        print("")
+        input("Would you like to try again?")
+        if "yes":
+            checkAnswer(number1, answer, right)
+        else:
+            break
     return right
 
 def printGrats():
     print("")
     print("CONGRATULATIONS YOU MADE IT TO THE END")
+
+def endProgram():
+    print("")
 
 main()
