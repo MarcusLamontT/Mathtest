@@ -1,0 +1,60 @@
+#the main function
+def main():
+
+    dataFile, validNumber = listSize()
+    i, f ,line , dataFile[i] = checkText()
+    i, f , line, validNumber[i] = realText()
+    checkAnswers()
+    #declares two arrays with size of 10
+
+def listSize():
+    dataFile = [0]*10;
+    validNumber = [0]*10;
+
+    return dataFile, validNumber
+
+    #i is the counter, set to 0
+    
+def checkText():
+    i=0;
+    #reads in text file that needs to be checked
+    #reads in a while loop 10 times and stores each line into array
+    f = open("checktext.txt","r");
+    while i< 10:
+        line = f.readline();
+        dataFile[i]=line;
+       
+        i+=1;
+        
+    f.close();
+
+    return i, f ,line , dataFile[i]
+
+    #reads in text file that needs to be checked
+    #reads in a while loop 10 times and stores each line into array
+def realText():
+    i=0;
+    f = open("realtext.txt","r");
+    while i<10:
+        line = f.readline();
+        validNumber[i]=line;
+       
+        i+=1;
+        
+    f.close();
+
+    return i, f , line, validNumber[i]
+
+    #goes through 10 loops through each array to check if valid or not
+def checkAnswers():
+    i=0;
+    while i<10:
+        if dataFile[i]==validNumber[i]:
+            print("Correct");
+        else:
+            print("Incorrect");
+        i+=1;
+        
+
+#calls main
+main()
