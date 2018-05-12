@@ -1,0 +1,53 @@
+
+#the main function
+def main():
+    #declares two arrays with size of 10
+    dataFile = [0]*10;
+    validNumber = [0]*10;
+    
+    valid_answers(dataFile);
+    johns_answers(validNumber);
+    printResult(dataFile, validNumber);
+
+    
+        
+def valid_answers(dataFile):
+    i=0;
+    f = open("valid_answers.txt","r");
+    while i< 10:
+        line = f.readline();
+        dataFile[i]=line;
+       
+        i+=1;
+        
+    f.close();
+    
+def johns_answers(validNumber):
+    i=0;
+    f = open("johns_answers.txt","r");
+    while i<10:
+        line = f.readline();
+        validNumber[i]=line;   
+        i+=1;
+    f.close();
+
+def printResult(dataFile,validNumber):
+    i=0;
+    rcounter=0;
+    wcounter=0;
+    while i<10:
+        if dataFile[i]==validNumber[i]:
+            print("valid");
+            rcounter+=1;
+        else:
+            print("invalid");
+            wcounter+=1;
+        i+=1;
+    score = (rcounter/(rcounter+wcounter))*100;
+    print("Total correct ",rcounter);
+    print("Total incorrect ",wcounter);
+    print("Score ", score);
+    
+        
+#calls main
+main()
