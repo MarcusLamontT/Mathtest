@@ -1,25 +1,15 @@
 #the main function
 def main():
-
-    dataFile, validNumber = listSize()
-    i, f ,line , dataFile[i] = checkText()
-    i, f , line, validNumber[i] = realText()
-    checkAnswers()
     #declares two arrays with size of 10
-
-def listSize():
     dataFile = [0]*10;
     validNumber = [0]*10;
+    valid_answers(dataFile);
+    johns_answers(validNumber);
+    printResult(dataFile, validNumber);
 
-    return dataFile, validNumber
-
-    #i is the counter, set to 0
-    
-def checkText():
+def valid_answers(dataFile):
     i=0;
-    #reads in text file that needs to be checked
-    #reads in a while loop 10 times and stores each line into array
-    f = open("checktext.txt","r");
+    f = open("valid_answers.txt","r");
     while i< 10:
         line = f.readline();
         dataFile[i]=line;
@@ -27,34 +17,44 @@ def checkText():
         i+=1;
         
     f.close();
-
-    return i, f ,line , dataFile[i]
-
-    #reads in text file that needs to be checked
-    #reads in a while loop 10 times and stores each line into array
-def realText():
+    
+def johns_answers(validNumber):
     i=0;
-    f = open("realtext.txt","r");
+    f = open("johns_answers.txt","r");
     while i<10:
         line = f.readline();
-        validNumber[i]=line;
-       
+        validNumber[i]=line;   
         i+=1;
-        
     f.close();
 
-    return i, f , line, validNumber[i]
-
-    #goes through 10 loops through each array to check if valid or not
-def checkAnswers():
+def printResult(dataFile,validNumber):
+    a=0
+    r = open("DMV.txt","w")
+    r.write("Correct DMV Answer     John's Answer     Correct/Incorrect")
+    while a<10:
+        r.write(valid_answers[a])
+    a+=1
+    
+    
+    
     i=0;
+    rcounter=0;
+    wcounter=0;
     while i<10:
         if dataFile[i]==validNumber[i]:
-            print("Correct");
+            r.write("Correct\n");
+            rcounter+=1;
         else:
-            print("Incorrect");
+            r.write("Incorrect\n");
+            wcounter+=1;
         i+=1;
+    score = (rcounter/(rcounter+wcounter))*100;
+    
+    r.write("Total Correct %d\n" % (rcounter));
+    r.write("Total Incorrect %d\n" % (wcounter));
+    r.write("Score %d\n" % (score));
+    r.close()
+    
         
-
 #calls main
 main()
