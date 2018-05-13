@@ -32,7 +32,7 @@ def printResult(dataFile,validNumber, ):
     r = open("DMV.txt","w")
     r.write("Correct DMV Answer     John's Answer     Correct/Incorrect")
     while a<10:
-        r.write"%s\n" % (dataFile[a])
+        r.write("%s\n" % (dataFile[a]))
     a+=1
     
     
