@@ -27,12 +27,12 @@ def johns_answers(validNumber):
         i+=1;
     f.close();
 
-def printResult(dataFile,validNumber):
+def printResult(dataFile,validNumber, ):
     a=0
     r = open("DMV.txt","w")
     r.write("Correct DMV Answer     John's Answer     Correct/Incorrect")
     while a<10:
-        r.write(valid_answers[a])
+        r.write"%s\n" % (dataFile[a])
     a+=1
     
     
