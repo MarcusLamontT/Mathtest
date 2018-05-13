@@ -3,14 +3,10 @@ def main():
     #declares two arrays with size of 10
     dataFile = [0]*10;
     validNumber = [0]*10;
-    
     valid_answers(dataFile);
     johns_answers(validNumber);
     printResult(dataFile, validNumber);
 
-
-    
-        
 def valid_answers(dataFile):
     i=0;
     f = open("valid_answers.txt","r");
@@ -38,18 +34,19 @@ def printResult(dataFile,validNumber):
     wcounter=0;
     while i<10:
         if dataFile[i]==validNumber[i]:
-            r.write("valid");
+            r.write("valid\n");
             rcounter+=1;
         else:
-            r.write("invalid");
+            r.write("invalid\n");
             wcounter+=1;
         i+=1;
     score = (rcounter/(rcounter+wcounter))*100;
-    r.write("Total correct ",rcounter);
-    r.write("Total incorrect ",wcounter);
-    r.write("Score ", score);
+    r.write("Total correct%d\n "%(rcounter));
+    r.write("Total incorrect%\n "%(wcounter));
+    r.write("Score%d\n " %(score));
     r.close()
     
         
 #calls main
 main()
+
