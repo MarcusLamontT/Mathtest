@@ -1,4 +1,3 @@
-
 #the main function
 def main():
     #declares two arrays with size of 10
@@ -8,6 +7,7 @@ def main():
     valid_answers(dataFile);
     johns_answers(validNumber);
     printResult(dataFile, validNumber);
+
 
     
         
@@ -32,21 +32,23 @@ def johns_answers(validNumber):
     f.close();
 
 def printResult(dataFile,validNumber):
+    r = open("DMV.txt","w")
     i=0;
     rcounter=0;
     wcounter=0;
     while i<10:
         if dataFile[i]==validNumber[i]:
-            print("valid");
+            r.write("valid");
             rcounter+=1;
         else:
-            print("invalid");
+            r.write("invalid");
             wcounter+=1;
         i+=1;
     score = (rcounter/(rcounter+wcounter))*100;
-    print("Total correct ",rcounter);
-    print("Total incorrect ",wcounter);
-    print("Score ", score);
+    r.write("Total correct ",rcounter);
+    r.write("Total incorrect ",wcounter);
+    r.write("Score ", score);
+    r.close()
     
         
 #calls main
